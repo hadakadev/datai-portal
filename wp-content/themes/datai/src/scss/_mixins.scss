@@ -1,0 +1,30 @@
+@use 'sass:math';
+
+@mixin rem($property, $value) {
+    #{$property}: #{math.div($value, 15)}rem;
+}
+
+
+@mixin section-padding($top, $bottom) {
+    padding: #{$top}rem 0 #{$bottom}rem;
+}
+
+@mixin media($breakpoint) {
+    @media screen and (max-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
+@mixin responsive-font-size($base-size: 16px, $scale-factor: 4) {
+    font-size: calc(#{$base-size} + (#{$scale-factor} * ((100vw - 1440px) / 960)));
+}
+
+@mixin heading-style($font-size, $line-height, $letter-spacing: 0) {
+    font-family: Archivo;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: $font-size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    margin: 0;
+}

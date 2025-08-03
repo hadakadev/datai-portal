@@ -1,0 +1,74 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+html {
+    @include responsive-font-size(16px);
+
+    @media (max-width: $laptop) {
+        font-size: 14px;
+    }
+
+    @media (min-width: $large-screen) {
+        @include responsive-font-size(20px);
+    }
+}
+
+// Heading styles
+h1 {
+    @include heading-style(3.5rem, 4.0625rem);
+}
+
+h2 {
+    @include heading-style(3.75rem, 4rem, 0.01em);
+}
+
+h3 {
+    @include heading-style(2.5rem, 3rem, 0.01em);
+}
+
+h4 {
+    @include heading-style(1.75rem, 2rem, 0.01em);
+}
+
+h5 {
+    @include heading-style(1.5rem, 1.875rem, 0.01em);
+}
+
+// Body font style
+body {
+    font-family: 'Space Mono', sans-serif;
+    font-weight: 400;
+    line-height: 1.5rem; // 24px
+}
+
+// Mobile-specific adjustments
+@include media($mobile) {
+    html {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.75rem; // 28px
+        line-height: 1.75rem; // 28px
+    }
+
+    h2 {
+        font-size: 2.125rem; // 34px
+        line-height: 2.25rem; // 36px
+    }
+
+    h3 {
+        font-size: 1.75rem; // 28px
+        line-height: 2rem; // 32px
+    }
+
+    h4 {
+        font-size: 1.375rem; // 22px
+        line-height: 1.75rem; // 28px
+    }
+
+    h5 {
+        font-size: 1rem; // 16px
+        line-height: 1.5rem; // 24px
+    }
+}
